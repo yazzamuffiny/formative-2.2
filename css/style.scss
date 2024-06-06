@@ -1,8 +1,13 @@
+//font import 
+@import url("https://fonts.googleapis.com/css2?family=Russo+One&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Electrolize&display=swap');
+
 /* global reset */
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box; 
+    font-family: "Electrolize", sans-serif;
 }
 /* end global reset */
 
@@ -21,30 +26,27 @@ nav {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 3em;
+    font-size: 4em;
+    background-color: #000000;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='152' height='152' viewBox='0 0 152 152'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='temple' fill='%2300a6f0' fill-opacity='0.36'%3E%3Cpath d='M152 150v2H0v-2h28v-8H8v-20H0v-2h8V80h42v20h20v42H30v8h90v-8H80v-42h20V80h42v40h8V30h-8v40h-42V50H80V8h40V0h2v8h20v20h8V0h2v150zm-2 0v-28h-8v20h-20v8h28zM82 30v18h18V30H82zm20 18h20v20h18V30h-20V10H82v18h20v20zm0 2v18h18V50h-18zm20-22h18V10h-18v18zm-54 92v-18H50v18h18zm-20-18H28V82H10v38h20v20h38v-18H48v-20zm0-2V82H30v18h18zm-20 22H10v18h18v-18zm54 0v18h38v-20h20V82h-18v20h-20v20H82zm18-20H82v18h18v-18zm2-2h18V82h-18v18zm20 40v-18h18v18h-18zM30 0h-2v8H8v20H0v2h8v40h42V50h20V8H30V0zm20 48h18V30H50v18zm18-20H48v20H28v20H10V30h20V10h38v18zM30 50h18v18H30V50zm-2-40H10v18h18V10z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");    
     color: white;
 }
 
-.section:nth-child(1) {
-    background-color: aquamarine;
+.welcome {
+    font-family: "Russo One", sans-serif;
 }
 
-
-/* Slide 1 Styling */
-.slide:nth-child(1) {
+#slide1 {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    text-align: center;
-    font-size: 2em;
-    color: white;
 }
 
 form {
     display: flex;
     flex-direction: column;
     width: 300px;
+    margin-left: 200px;
 }
 
 input {
@@ -52,17 +54,23 @@ input {
     padding: 10px;
 }
 
-button {
+#submitButton {
     padding: 10px;
     background-color: #333;
     color: white;
     border: none;
 }
+#submitButton:hover {
+    background-color: #00a6f0;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
 
 #formMessage {
     margin-top: 10px;
     color: red;
-    font-size: 16px;
+    font-size: 20px;
+    text-align: center;
 }
 
 #slide2 {
@@ -74,6 +82,53 @@ button {
         background-attachment: fixed;
         width: 100%;
         height: 400px;
+    }
+}
+
+.filter-container {
+    display: flex;
+    justify-content: center;
+    .filter {
+        padding: 20px;
+    }
+    label {
+        font-size: 32px;
+    }
+    select {
+        width: 200px;
+        font-size: 20px;
+        background-color: #333;
+        color: white;
+        border: 1px solid white;
+        padding: 5px;
+        transition: all 0.2s ease;
+    }
+    select:hover {
+        cursor: pointer;
+        background-color: #00a6f0;
+        transition: all 0.2s ease;
+    }
+    option {
+        background-color: #333;
+    }
+}
+.sort-section {
+    display: flex;
+    justify-content: center;
+    button {
+        padding: 16px 24px;
+        min-width: 150px;
+        margin: 20px;
+        font-size: 20px;
+        background-color: #333;
+        color: white;
+        border: 1px solid white;
+        transition: all 0.2s ease;
+    }
+    button:hover {
+        cursor: pointer;
+        background-color: #00a6f0;
+        transition: all 0.2s ease;
     }
 }
 
@@ -94,7 +149,7 @@ button {
     display: flex;
     flex-direction: column;
     border-radius: 8px;
-    background-color: white;
+    background-color: rgb(225, 239, 255);
     box-shadow: 2px 3px 5px 2px rgba(0, 0, 0, 0.25);
     -webkit-box-shadow: 2px 3px 5px 2px rgba(0, 0, 0, 0.25);
     -moz-box-shadow: 2px 3px 5px 2px rgba(0, 0, 0, 0.25);
@@ -102,13 +157,17 @@ button {
     img {
         width: 100%;
     }
+    img:hover {
+        cursor: pointer;
+    }
     .game-details {
         padding: 16px;
         h2 {
             margin: 8px 0;
             font-weight: 500;
-            font-size: 20px;
+            font-size: 30px;
             color: black;
+            text-align: center;
         }
         p {
             font-weight: 300;
@@ -118,18 +177,25 @@ button {
     }
     .more-details {
         display: flex;
-        justify-content: space-between;
-        margin: 8px 0;
+        justify-content: space-around;
+        margin: 8px 0px;
         h6 {
-            color: green;
+            color: rgb(0, 0, 0);
         }
         .game-extras {
             display: flex;
+            flex-direction: column;
             gap: 8px;
-            p {
+            .genre {
                 font-weight: 400;
-                color: rgb(155, 162, 169);
+                color: rgb(0, 75, 150);
                 font-size: 16px;
+            }
+            .platform {
+                font-weight: 400;
+                color: rgb(112, 112, 112);
+                font-size: 16px;
+                margin-bottom: 10px;
             }
         }
     }
@@ -138,7 +204,6 @@ button {
 .game:hover {
     scale: 1.1;
     transition: all 0.3s ease;
-    cursor: pointer;
 }
 
 
@@ -157,21 +222,20 @@ button {
 /* Swiper */
 
 .swiper {
-    width: 300px;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
-    height: 300px;
+    height: 250px;
 }
 
 .swiper-pagination-clickable {
     padding: 4px;
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(255, 255, 255, 0.4);
     backdrop-filter: blur(10px);
     border-radius: 16px;
 }
 
 .swiper-pagination-bullet {
-    background: rgb(255, 0, 0, 0.7);
+    background: rgb(0, 78, 109);
     width: 16px;
     height: 16px;
 }
@@ -179,7 +243,7 @@ button {
 .swiper-pagination-bullet-active {
     width: 17px;
     height: 17px;
-    background: rgb(255, 0, 0);
+    background: rgb(0, 183, 255);
 }
 /* END SWIPER */
 

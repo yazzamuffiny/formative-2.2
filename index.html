@@ -22,8 +22,8 @@
         <!-- SLIDES - horizontal - live inside of SECTIONS -->
         <div class="section">
             <!-- Slides go inside a section -->
-            <div class="slide">
-                <h2>Welcome</h2>
+            <div class="slide" id="slide1">
+                <h2 class="welcome">Welcome Gamer</h2>
                 <form id="signupForm">
                     <input type="text" id="username" placeholder="Username" required>
                     <input type="email" id="email" placeholder="Email" required>
@@ -37,7 +37,7 @@
                 <div class="header-img"></div>
                 <div class="filter-container">
                     <div class="filter">
-                        <label for="genre">Genre</label>
+                        <label for="genre">Genre:</label>
                         <select name="genre" id="genre" class="select">
                             <option value="">Any</option>
                             <option value="Action">Action</option>
@@ -45,7 +45,7 @@
                             <option value="Horror">Horror</option>
                             <option value="MMO">MMO</option>
                             <option value="Platformer">Platformer</option>
-                            <option value="Puzzle"></option>
+                            <option value="Puzzle">Puzzle</option>
                             <option value="RPG">RPG</option>
                             <option value="Roguelike">Roguelike</option>
                             <option value="Simulation">Simulation</option>
@@ -53,12 +53,29 @@
                             <option value="Survival">Survival</option>
                         </select>
                     </div>
+                    <div class="filter">
+                        <label for="platform">Platform:</label>
+                        <select name="platform" id="platform" class="select">
+                            <option value="">Any</option>
+                            <option value="PC">PC</option>
+                            <option value="Playstation">Playstation</option>
+                            <option value="Switch">Switch</option>
+                            <option value="Xbox">Xbox</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="sort-section">
+                    <button class="sort-button" id="sortAlphabetically">A-Z</button>
+                    <button class="sort-button" id="sortHighToLow">$$$-$</button>
+                    <button class="sort-button" id="sortLowToHigh">$-$$$</button>
                 </div>
                 <div class="results" id="results">
                 </div>
             </div>
             <div class="slide" id="slide3">
-                Slide 3
+                <button id="backArrow"><i class="fa-solid fa-arrow-left" ></i></button>
+                <div class="details-page">
+                </div>
             </div>
         </div>
     </div>
@@ -77,6 +94,6 @@
     <!-- Fullpage JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.22/fullpage.min.js" integrity="sha512-yHHLi2ZwgtW9QNVZd0asqMyWGJ6Kx73ijKlGWSi3MwYFB5ZzOJV8wPtopKr6muHk5SERgF3OB/2dZj3StlI34w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- custom js -->
-    <script src="./js/script.min.js"></script>
+    <script src="./js/script.js"></script>
 </body>
 </html>

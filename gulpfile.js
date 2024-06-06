@@ -5,7 +5,6 @@ const rename = require('gulp-rename'); // Renames files
 const livereload = require('gulp-livereload'); // Reloads the browser when files change
 const connect = require('gulp-connect'); // Creates a local server
 const jshint = require('gulp-jshint'); // Checks JavaScript for errors
-const uglify = require('gulp-uglify'); // Minifies JavaScript files
 
 // Server Task - Sets up a live server
 function serve(done) {
@@ -44,23 +43,15 @@ function lint(done) {
     done(); // Indicate that the task is done
 }
 
-// JS Minification Task - Minifies JavaScript files and reloads the server
-function minifyJs(done) {
-    gulp.src(['js/script.js', '!js/*.min.js']) // Source files for JavaScript, excluding minified files
-        .pipe(uglify()) // Minify JavaScript
-        .pipe(rename({ suffix: '.min' })) // Rename the minified JavaScript file with a .min suffix
-        .pipe(gulp.dest('js/')) // Destination folder for the minified JavaScript file
-        .pipe(connect.reload()); // Reload the server
-    done(); // Indicate that the task is done
-}
+
 
 // Watch Task - Watches for changes in files and runs the corresponding tasks
 function watch(done) {
     gulp.watch('css/*.scss', gulp.series(styles)); // Watch for changes in Sass files and run the styles task
     gulp.watch('./*.html', gulp.series(html)); // Watch for changes in HTML files and run the html task
-    gulp.watch(['js/script.js', '!js/*.min.js'], gulp.series(lint, minifyJs)); // Watch for changes in JavaScript files and run the lint and minifyJs tasks
+    gulp.watch('js/script.js', gulp.series(lint)); // Watch for changes in JavaScript files and run the lint and minifyJs tasks
     done(); // Indicate that the task is done
 }
 
 // Default Task - Runs the serve, watch, lint, minifyJs, html, and styles tasks in sequence
-gulp.task('default', gulp.series(serve, watch, lint, minifyJs, html, styles));
+gulp.task('default', gulp.series(serve, watch, lint, html, styles));
