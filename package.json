@@ -11,7 +11,9 @@
   "description": "",
   "dependencies": {
     "gulp": "^5.0.0",
-    "gulp-clean-css": "^4.3.0"
+    "gulp-clean-css": "^4.3.0",
+    "tilt.js": "^1.2.1",
+    "vanilla-tilt": "^1.8.1"
   },
   "devDependencies": {
     "gulp-connect": "^5.7.0",

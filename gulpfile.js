@@ -4,8 +4,7 @@ const cleanCSS = require('gulp-clean-css'); // Minifies CSS files
 const rename = require('gulp-rename'); // Renames files
 const livereload = require('gulp-livereload'); // Reloads the browser when files change
 const connect = require('gulp-connect'); // Creates a local server
-const jshint = require('gulp-jshint'); // Checks JavaScript for errors
-
+const jshint = require('gulp-jshint'); // Checks JavaScript for error
 // Server Task - Sets up a live server
 function serve(done) {
     connect.server({
@@ -55,3 +54,6 @@ function watch(done) {
 
 // Default Task - Runs the serve, watch, lint, minifyJs, html, and styles tasks in sequence
 gulp.task('default', gulp.series(serve, watch, lint, html, styles));
+
+
+

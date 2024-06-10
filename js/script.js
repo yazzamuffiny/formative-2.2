@@ -1,5 +1,7 @@
 /* jshint esversion: 6 */
 $(document).ready(function () {
+
+    
     //array
     const games = [{
             id: 1,
@@ -241,13 +243,13 @@ $(document).ready(function () {
     //remove error animation
         $("#username").change(function (){
             $("#username").removeClass("error");
-        })
+        });
         $("#email").change(function (){
             $("#email").removeClass("error");
-        })
+        });
         $("#password").change(function (){
             $("#password").removeClass("error");
-        })
+        });
 
     // Click on the submit Button:
     $('#submitButton').click(function (event) {
@@ -287,8 +289,6 @@ $(document).ready(function () {
             // Move to slide 2 of section 1
             fullpage_api.moveTo(1, 1); // slide 2
         }
-
-        fullpage_api.moveTo(1, 1);   
     });
 
     function checkForLoggedInUser() {
@@ -404,14 +404,17 @@ function filterGames () {
                 //create a card for that property
                 const card = `
                 <div class="game">
-                    <div class="swiper">
-                        <!-- Additional required wrapper -->
-                        <div class="swiper-wrapper">
-                        <div class="swiper-slide"><img src="${game.image1}" alt="${game.name} image 1" class="game-image" value=${game.id}></div>
-                        <div class="swiper-slide"><img src="${game.image2}" alt="${game.name} image 2" class="game-image" value=${game.id}></div>
+                    <div class="gradient">
+                        <div class="swiper">
+                            <!-- Additional required wrapper -->
+                            <div class="swiper-wrapper">
+                            <div class="swiper-slide"><img src="${game.image1}" alt="${game.name} image 1" class="game-image" value=${game.id}></div>
+                            <div class="swiper-slide"><img src="${game.image2}" alt="${game.name} image 2" class="game-image" value=${game.id}></div>
+                            </div>
+                            <div class="swiper-pagination"></div>
                         </div>
-                        <div class="swiper-pagination"></div>
                     </div>
+
                     <div class="game-details">
                         <h2>${game.name}</h2>
                         <p>${game.header}</p>
@@ -428,7 +431,17 @@ function filterGames () {
                 detailsPage();
                 
                 //initialize swiper js
-                
+                const swiper = new Swiper('.swiper', {
+                    // Optional parameters
+                    direction: 'vertical',
+                    loop: true,
+            
+                    // If we need pagination
+                    pagination: {
+                        el: '.swiper-pagination',
+                        clickable: true,
+                    },
+                });
             });
         }
     }
@@ -477,19 +490,6 @@ function filterGames () {
             clickable: true,
         },
     });
-
-    // const swiper = new Swiper('.swiper', {
-    //     // Optional parameters
-    //     direction: 'vertical',
-    //     loop: true,
-
-    //     // If we need pagination
-    //     pagination: {
-    //         el: '.swiper-pagination',
-    //         clickable: true,
-    //     },
-    // });
-
-
+ 
 //end 
 });
